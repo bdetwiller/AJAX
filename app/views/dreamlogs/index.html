@@ -1,0 +1,35 @@
+<h1> Enter your dream </h1>
+
+<div id="dreamlist"></div>
+<div id="dreamform">
+	<input type="text" id="textfield"></input>
+	<button id="submit">Create Dream!</button>
+	<button id="refresh">Refresh</button>
+</div>
+
+<script type="text/javascript">
+	$(function () {
+
+		var dreamList = $('#dreamlist');
+		var dreamView = new D.DreamIndexView();
+
+		var textField = $('#textfield');
+		var submit = $('#submit');
+		var refresh = $('#refresh');
+
+		var dreamFormView = new D.DreamFormView(
+			textField,
+			submit,
+			function(newDream) {
+				newDream.save();
+			}
+		).clickButton();
+
+		D.Dream.refresh();
+
+	});
+
+</script>
+
+	
+
